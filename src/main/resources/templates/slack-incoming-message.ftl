@@ -39,11 +39,13 @@
                "value":"<${executionData.href}|#${executionData.id}>",
                "short":true
             },
+<#list executionData.context.option?keys as key>
             {
-               "title":"Options",
-               "value":"${(executionData.argstring?replace('"', '\''))!"N/A"}",
+               "title":"${key}",
+               "value":"${executionData.context.option[key]}",
                "short":true
             },
+</#list>
             {
                "title":"Started By",
                "value":"${executionData.user}",
@@ -56,7 +58,7 @@
                "short":false
             }
 </#if>
-]
+        ]
       }
    ]
 }
